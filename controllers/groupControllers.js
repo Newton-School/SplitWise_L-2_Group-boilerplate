@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const Group = require('../models/groupModel');
 
+//Kindly Check Description before writing code
 const newGroup = async (req, res) => {
   const { name } = req.body;
 
