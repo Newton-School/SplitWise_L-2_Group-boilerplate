@@ -23,24 +23,17 @@ const userSchema = new mongoose.Schema(
         }
       },
     },
-    //Write a code here to add role and groups into a userSchema
-    /*     {
-                                ROLE:
-The role field in the User schema defines the role of the user within the system.
-It allows you to categorize users into different roles based on their privileges or responsibilities.
-The possible roles are:
-              1)user 2)admin 3)creator
-By default, if the role field is not provided during user creation, it will be set to 'user'.
+    role: {
+      type: String,
+      enum: ['admin', 'user', 'creator'], // Define the possible roles
+      default: 'user', // Set a default role if not provided
     },
-     */
-    /*     {
-                              groups
-The groups field in the User schema is an array of Group references.
-It allows you to associate a user with multiple groups in the system.
-Each group reference is stored as a mongoose.Schema.Types.ObjectId that references a specific Group document.
-To add a user to a group, you can push the ObjectId of the desired Group document into the groups array of the user.
-      }
-     */
+    groups: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group',
+      },
+    ],
   },
   { timestamps: true }
 );
