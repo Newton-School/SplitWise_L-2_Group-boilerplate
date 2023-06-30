@@ -5,7 +5,6 @@ const isAuthenticated = (requiredRole) => (req, res, next) => {
   // Check if the user's role matches the required role
   //If user role doesnt mathes the requiredRole then it should have status 403 with a Fornidden message
   // User is authenticated and has the required role, proceed to the next middleware
-  next();
 };
 
 module.exports = isAuthenticated;
